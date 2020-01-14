@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.gustavo.cursomc.services.exceptions.ObjectNotFoundException;
 
+//@ControllerAdvice permite que você escreva um código global que pode ser aplicado a uma ampla 
+//variedade de controladores 
 @ControllerAdvice
 public class ResourceExceptionHandler {
-	
+	//@ExceptionHandlerpermite definir um método que, como o nome sugere, lida com exceções.
 	@ExceptionHandler(ObjectNotFoundException.class)
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
