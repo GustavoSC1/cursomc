@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.gustavo.cursomc.domain.enums.TipoCliente;
 
 @Entity
@@ -28,9 +29,15 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private Integer tipo;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
+	//Usamos @ElementCollectio na notação para declarar um mapeamento de coleção de elementos. 
+	//Todos os registros da coleção são armazenados em uma tabela separada. A configuração 
+	//para esta tabela é especificada usando a @CollectionTableanotação.
+	//A @CollectionTableanotação é usada para especificar o nome da tabela que armazena 
+	//todos os registros da coleção e o JoinColumnque se refere à tabela principal.
 	@ElementCollection
 	@CollectionTable(name="TELEFONE")
 	private Set<String> telefones = new HashSet<>();
