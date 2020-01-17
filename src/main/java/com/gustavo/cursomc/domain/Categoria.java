@@ -27,6 +27,10 @@ public class Categoria implements Serializable {
 	//Anotação usada para indicar que a propriedade anotada faz parte da ligação 
 	//bidirecional entre os campos; e que seu papel é o link "pai" (ou "encaminhamento"). 
 	@JsonManagedReference
+	//Quando temos uma associação bidirecional, devemos sempre indicar quem é o dono do 
+	//relacionamento. Apenas um lado do relacionamento irá resultar em alterações (updates) 
+	//na chave estrangeira;
+	//O mappedBy precisa ser colocado sempre na associação que não é o dono da relação.
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
