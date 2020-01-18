@@ -37,7 +37,7 @@ public class Cliente implements Serializable {
 	//Todos os registros da coleção são armazenados em uma tabela separada. A configuração 
 	//para esta tabela é especificada usando a @CollectionTableanotação.
 	//A @CollectionTableanotação é usada para especificar o nome da tabela que armazena 
-	//todos os registros da coleção e o JoinColumnque se refere à tabela principal.
+	//todos os registros da coleção e o JoinColumn que se refere à tabela principal.
 	@ElementCollection
 	@CollectionTable(name="TELEFONE")
 	private Set<String> telefones = new HashSet<>();
