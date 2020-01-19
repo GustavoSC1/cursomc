@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 //Serializable diz que os objetos dessa classe poderão ser convertidos
@@ -26,7 +25,8 @@ public class Categoria implements Serializable {
 	
 	//Anotação usada para indicar que a propriedade anotada faz parte da ligação 
 	//bidirecional entre os campos; e que seu papel é o link "pai" (ou "encaminhamento"). 
-	@JsonManagedReference
+	//@JsonManagedReference
+	
 	//Quando temos uma associação bidirecional, devemos sempre indicar quem é o dono do 
 	//relacionamento. Apenas um lado do relacionamento irá resultar em alterações (updates) 
 	//na chave estrangeira;
