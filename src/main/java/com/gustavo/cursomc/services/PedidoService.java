@@ -15,7 +15,7 @@ public class PedidoService {
 	@Autowired
 	private PedidoRepository repo;
 	
-	public Pedido buscar(Integer id) {
+	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		//A classe opcional em Java é usada para obter o valor dessa instância opcional, 
 		//se presente. Se não houver valor presente nesta instância opcional, esse método 
