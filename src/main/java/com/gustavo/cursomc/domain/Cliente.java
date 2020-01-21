@@ -37,7 +37,7 @@ public class Cliente implements Serializable {
 	//Usamos @ElementCollectio na notação para declarar um mapeamento de coleção de elementos. 
 	//Todos os registros da coleção são armazenados em uma tabela separada. A configuração 
 	//para esta tabela é especificada usando a @CollectionTable anotação.
-	//A @CollectionTableanotação é usada para especificar o nome da tabela que armazena 
+	//A @CollectionTable anotação é usada para especificar o nome da tabela que armazena 
 	//todos os registros da coleção e o JoinColumn que se refere à tabela principal.
 	@ElementCollection
 	@CollectionTable(name="TELEFONE")
