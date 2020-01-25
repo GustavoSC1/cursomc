@@ -1,5 +1,8 @@
 package com.gustavo.cursomc.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -8,14 +11,10 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gustavo.cursomc.domain.Categoria;
-import com.gustavo.cursomc.domain.Cliente;
 import com.gustavo.cursomc.dto.CategoriaDTO;
 import com.gustavo.cursomc.repositories.CategoriaRepository;
 import com.gustavo.cursomc.services.exceptions.DataIntegrityException;
 import com.gustavo.cursomc.services.exceptions.ObjectNotFoundException;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoriaService {
