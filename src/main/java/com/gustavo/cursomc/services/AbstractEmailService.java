@@ -19,6 +19,7 @@ public abstract class AbstractEmailService implements EmailService {
 	}
 
 	protected SimpleMailMessage prepareSimpleMailMessageFromPedido(Pedido obj) {
+		//SimpleMailMessage modela uma mensagem de correio simples, incluindo dados como os campos de, para, cc, assunto e texto.
 		SimpleMailMessage sm = new SimpleMailMessage();
 		sm.setTo(obj.getCliente().getEmail());
 		sm.setFrom(sender);
