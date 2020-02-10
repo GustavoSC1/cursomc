@@ -11,11 +11,9 @@ import com.gustavo.cursomc.domain.ItemPedido;
 import com.gustavo.cursomc.domain.PagamentoComBoleto;
 import com.gustavo.cursomc.domain.Pedido;
 import com.gustavo.cursomc.domain.enums.EstadoPagamento;
-import com.gustavo.cursomc.repositories.ClienteRepository;
 import com.gustavo.cursomc.repositories.ItemPedidoRepository;
 import com.gustavo.cursomc.repositories.PagamentoRepository;
 import com.gustavo.cursomc.repositories.PedidoRepository;
-import com.gustavo.cursomc.repositories.ProdutoRepository;
 import com.gustavo.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -29,10 +27,7 @@ public class PedidoService {
 	
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
-	
-	@Autowired
-	private ProdutoRepository produtoRepository;
-	
+		
 	@Autowired
 	private ProdutoService produtoService;
 	
@@ -75,7 +70,8 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
-		emailService.sendOrderConfirmationEmail(obj);
+		emailService.sendOrderConfirmationHtmlEmail(obj);
+		//emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 }
