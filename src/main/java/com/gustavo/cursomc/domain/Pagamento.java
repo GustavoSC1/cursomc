@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.gustavo.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
+//Identifica que a estratégia de herança será “JOINED”, ou seja, será feita uma junção através de chaves estrangeiras.
 @Inheritance(strategy=InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable {	

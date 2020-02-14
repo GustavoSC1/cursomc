@@ -28,6 +28,8 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
+	// @PathVariable é utilizado quando o valor da variável é passada diretamente na URL, mas não como um parametro
+	//que você passa após o sinal de interrogação (?) mas sim quando o valor faz parte da url.
 	@RequestMapping(value="{id}", method = RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
