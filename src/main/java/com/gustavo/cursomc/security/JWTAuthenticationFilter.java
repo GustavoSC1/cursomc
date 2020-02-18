@@ -40,8 +40,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			//Vai pegar os dados que vieram na requisição e converter para CredenciaisDTO
 			CredenciaisDTO creds = new ObjectMapper()
 	                .readValue(req.getInputStream(), CredenciaisDTO.class);
-			
-			//
+						
 	        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getSenha(), new ArrayList<>());
 	        
 	        //Método que vai verificar usuário e senha com base no que foi implementado
@@ -61,7 +60,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 											HttpServletResponse res,
 											FilterChain chain,
 											Authentication auth) throws IOException, ServletException {
-		//Pega emailda pessoa que fez login
+		//Pega email da pessoa que fez login
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		//Gera token
         String token = jwtUtil.generateToken(username);
