@@ -27,6 +27,7 @@ public class JWTUtil {
 	}
 	
 	public boolean tokenValido(String token) {
+		//Claims é um tipo do jwt que armazena as reinvindicações do token: nesse caso o usuaário e o tempo de expiração
 		Claims claims = getClaims(token);
 		if (claims != null) {
 			// retorna o usuário
@@ -41,6 +42,7 @@ public class JWTUtil {
 	}
 	
 	public String getUsername(String token) {
+		//Claims é um tipo do jwt que armazena as reinvindicações do token: nesse caso o usuaário e o tempo de expiração
 		Claims claims = getClaims(token);
 		if (claims != null) {
 			return claims.getSubject();
