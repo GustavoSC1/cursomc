@@ -26,6 +26,7 @@ import com.gustavo.cursomc.security.JWTUtil;
 @Configuration
 @EnableWebSecurity
 //Vai permitir por anotações de pré autorização nos endpoints
+//https://developer.okta.com/blog/2019/06/20/spring-preauthorize
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
