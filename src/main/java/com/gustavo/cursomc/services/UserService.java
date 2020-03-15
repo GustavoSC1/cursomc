@@ -8,6 +8,7 @@ public class UserService {
 	
 	public static UserSS authenticated() {
 		try {
+			//Pega o usuário atual logado
 			return (UserSS) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		} catch (Exception E) {
 			return null;

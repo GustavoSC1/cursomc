@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class URL {
+	//Classe utilizada em ProdutosResource
 	
 	public static String decodeParam(String s) {
 		try {

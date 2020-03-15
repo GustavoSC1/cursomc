@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gustavo.cursomc.dto.CredenciaisDTO;
 
-//O Spring sabe que esse filtro vai interceptar a requisição de login
+//O Spring sabe que esse filtro vai interceptar a requisição de /login
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	
 	private AuthenticationManager authenticationManager;
@@ -44,6 +44,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getSenha(), new ArrayList<>());
 	        
 	        //Método que vai verificar usuário e senha com base no que foi implementado
+	        //https://spring.io/guides/topicals/spring-security-architecture
 	        Authentication auth = authenticationManager.authenticate(authToken);
 	        //Objeto que informa para o spring security se autenticação ocorreu com sucesso
 	        return auth;

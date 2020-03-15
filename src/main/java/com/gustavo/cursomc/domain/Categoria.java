@@ -23,6 +23,8 @@ public class Categoria implements Serializable {
 	private Integer id;
 	private String nome;
 	
+	//https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion
+	
 	//Anotação usada para indicar que a propriedade anotada faz parte da ligação 
 	//bidirecional entre os campos; e que seu papel é o link "pai" (ou "encaminhamento"). 
 	//@JsonManagedReference
