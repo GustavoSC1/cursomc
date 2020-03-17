@@ -16,8 +16,6 @@ import com.gustavo.cursomc.services.S3Service;
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner {
 	
-	@Autowired
-	private S3Service s3Service;
 	
 	//A anotação PostConstruct é usada em um método que precisa ser executado após a injeção de dependência 
 	//para executar qualquer inicialização. Este método deve ser invocado antes da classe ser colocada em serviço.
@@ -32,7 +30,7 @@ public class CursomcApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		s3Service.uploadFile("C:\\Users\\Gustavo\\Pictures\\teste\\good2.jpg");
+		
 	}
 
 }
