@@ -113,7 +113,6 @@ public class ClienteService {
 	}
 	
 	public URI uploadProfilePicture(MultipartFile multipartFile) {
-		System.out.print("Aquiiiii 2");
 		return s3Service.uploadFile(multipartFile);
 	}
 }

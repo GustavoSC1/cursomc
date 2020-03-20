@@ -39,7 +39,6 @@ public class ClienteResource {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto){
-		System.out.print("Aquiiii");
 		Cliente obj = service.fromDTO(objDto);
 		obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -84,9 +83,7 @@ public class ClienteResource {
 	
 	@RequestMapping(value="/picture", method = RequestMethod.POST)
 	public ResponseEntity<Void> uploadProfilePicture(@RequestParam(name="file") MultipartFile file){
-		System.out.print("Aquiiiii 1");
 		URI uri = service.uploadProfilePicture(file);	
-		System.out.print("Aquiiiii 5");
 		return ResponseEntity.created(uri).build();
 	}
 }

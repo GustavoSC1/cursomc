@@ -4,12 +4,10 @@ import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.gustavo.cursomc.services.S3Service;
 
 //CommandLineRunner é uma interface usada para indicar que um bean deve ser executado 
 //quando estiver contido em um SpringApplication.  
