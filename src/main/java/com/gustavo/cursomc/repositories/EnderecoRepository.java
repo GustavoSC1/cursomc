@@ -9,4 +9,6 @@ import com.gustavo.cursomc.domain.Endereco;
 //JpaRepository contém API para operações básicas de CRUD e também API para paginação e classificação.
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
 
+	
+	
 }
