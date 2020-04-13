@@ -24,7 +24,7 @@ import com.gustavo.cursomc.services.exceptions.FileException;
 public class ResourceExceptionHandler {
 	//@ExceptionHandlerpermite definir um método que, como o nome sugere, lida com exceções.
 	@ExceptionHandler(ObjectNotFoundException.class)
-	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
+	public ResponseEntity<StandardError> objectNotFounde(ObjectNotFoundException e, HttpServletRequest request){
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
 	}
