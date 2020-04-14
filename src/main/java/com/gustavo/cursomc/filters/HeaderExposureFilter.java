@@ -18,6 +18,8 @@ public class HeaderExposureFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
+		// Expondo o header location nas respostas.
+		//Dessa forma a aplicação Angular vai conseguir ler esse cabeçalho.
 		HttpServletResponse res = (HttpServletResponse) response;
 		res.addHeader("access-control-expose-headers", "location");
 		chain.doFilter(request, response);
