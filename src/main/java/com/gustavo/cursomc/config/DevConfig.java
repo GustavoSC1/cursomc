@@ -14,6 +14,8 @@ import com.gustavo.cursomc.services.DBService;
 import com.gustavo.cursomc.services.EmailService;
 import com.gustavo.cursomc.services.SmtpEmailService;
 
+//Indica que uma classe declara um ou mais @Bean métodos e pode ser processada pelo contêiner Spring para gerar definições de
+//bean e solicitações de serviço para esses beans em tempo de execução.
 @Configuration
 @Profile("dev")
 public class DevConfig {

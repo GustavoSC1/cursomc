@@ -9,8 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-//CommandLineRunner é uma interface usada para indicar que um bean deve ser executado 
-//quando estiver contido em um SpringApplication.  
+//Executa partes específicas de código quando um aplicativo é iniciado. CommandLineRunner é uma interface usada para indicar que 
+//um bean deve ser executado quando estiver contido em um SpringApplication.  
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner {
 	
@@ -26,6 +26,7 @@ public class CursomcApplication implements CommandLineRunner {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
+	// O CommandLineRunner requer a implementação de um método (run) que recebe por parâmetro uma matriz de String.
 	@Override
 	public void run(String... args) throws Exception {
 		

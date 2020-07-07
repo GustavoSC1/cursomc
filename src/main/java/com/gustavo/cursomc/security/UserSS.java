@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.gustavo.cursomc.domain.enums.Perfil;
 
+//Classe de usuário conforme contrato do Spring Security (implements UserDetails)
 public class UserSS implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	
@@ -29,8 +30,6 @@ public class UserSS implements UserDetails {
 		this.senha = senha;
 		this.authorities = perfis.stream().map(x -> new SimpleGrantedAuthority(x.getDescricao())).collect(Collectors.toList());
 	}
-
-
 
 	public Integer getId() {
 		return id;

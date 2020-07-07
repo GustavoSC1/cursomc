@@ -8,6 +8,7 @@ import java.util.List;
 public class URL {
 	//Classe utilizada em ProdutosResource
 	
+	//  TV%20LED  ->   TV LED
 	public static String decodeParam(String s) {
 		try {
 			return URLDecoder.decode(s, "UTF-8");
@@ -15,7 +16,7 @@ public class URL {
 			return "";
 		}
 	}
-	
+		
 	public static List<Integer> decodeIntList(String s) {
 		String[] vet = s.split(",");
 		List<Integer> list = new ArrayList<>();

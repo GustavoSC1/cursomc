@@ -29,6 +29,7 @@ public class Produto implements Serializable {
 	
 	@JsonIgnore
 	@ManyToMany
+	//Especifica o mapeamento de um relacionamento de tabela muitos para muitos
 	@JoinTable(name = "PRODUTO_CATEGORIA", 
 			joinColumns = @JoinColumn(name = "produto_id"),
 			inverseJoinColumns = @JoinColumn(name = "categoria_id")

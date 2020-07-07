@@ -15,8 +15,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
 	private ClienteRepository repo;
-
+		
 	@Override
+	// Classe de serviço conforme contrato do Spring Security (implements UserDetailsService). 
+	// Permite a busca do usuário pelo email.
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Cliente cli = repo.findByEmail(email);
 		if(cli == null) {

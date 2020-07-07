@@ -36,8 +36,8 @@ public class S3Config {
 	 @Bean
 	public AmazonS3Client s3client() {
 		 AWSCredentials credentials = new BasicAWSCredentials(
-					"",
-					"");			
+					"AKIAIOSFODNN7EXAMPLE",
+					"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY");			
 			
 			AmazonS3Client newClient =	new AmazonS3Client(credentials,	new ClientConfiguration());
 			newClient.setS3ClientOptions(S3ClientOptions.builder().setPathStyleAccess(true).disableChunkedEncoding().build());

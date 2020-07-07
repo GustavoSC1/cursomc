@@ -19,7 +19,7 @@ import com.gustavo.cursomc.services.exceptions.FileException;
 
 
 //@ControllerAdvice permite que você escreva um código global que pode ser aplicado a uma ampla 
-//variedade de controladores 
+//variedade de controladores. Indica que essa classe é responsável por tratar possiveis erros nas requisições.
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	//@ExceptionHandlerpermite definir um método que, como o nome sugere, lida com exceções.

@@ -43,7 +43,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 						
 	        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getSenha(), new ArrayList<>());
 	        
-	        //Método que vai verificar usuário e senha com base no que foi implementado
+	        //Método que vai verificar usuário e senha com base no que foi implementado (UserDetail | UserDetailService)
 	        //https://spring.io/guides/topicals/spring-security-architecture
 	        Authentication auth = authenticationManager.authenticate(authToken);
 	        //Objeto que informa para o spring security se autenticação ocorreu com sucesso
@@ -67,6 +67,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String token = jwtUtil.generateToken(username);
         //Retorna o token no cabeçalho na resposta da requisição
         res.addHeader("Authorization", "Bearer " + token);
+        // Expondo o header location nas respostas.
+     	//Dessa forma a aplicação Angular vai conseguir ler esse cabeçalho.
         res.addHeader("access-control-expose-headers", "Authorization");
 	}
 	

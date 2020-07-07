@@ -12,6 +12,7 @@ import com.gustavo.cursomc.domain.PagamentoComCartao;
 public class JacksonConfig {
 // https://stackoverflow.com/questions/41452598/overcome-can-not-construct-instance-ofinterfaceclass-without-hinting-the-pare
 	@Bean
+	//Aula 53
 	//Registra os subtipos da interface dinamicamente
 	public Jackson2ObjectMapperBuilder objectMapperBuilder() {
 		Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder() {

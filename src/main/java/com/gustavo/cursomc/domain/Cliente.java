@@ -37,6 +37,7 @@ public class Cliente implements Serializable {
 	@JsonIgnore
 	private String senha;
 	
+	//O uso do elemento de anotação em cascata pode ser usado para propagar o efeito de uma operação para entidades associadas. 
 	@OneToMany(mappedBy = "cliente", cascade=CascadeType.ALL)
 	private List<Endereco> enderecos = new ArrayList<>();
 	
@@ -50,6 +51,7 @@ public class Cliente implements Serializable {
 	private Set<String> telefones = new HashSet<>();
 	
 	//fetch=FetchType.EAGER garante que sempre que um cliente for buscado no bd, automaticamente vão ser buscados os perfis também
+	//www.devmedia.com.br/lazy-e-eager-loading-com-hibernate/29554
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name="PERFIS")
 	private Set<Integer> perfis = new HashSet<>();

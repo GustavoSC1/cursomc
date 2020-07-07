@@ -17,6 +17,8 @@ import com.gustavo.cursomc.domain.enums.EstadoPagamento;
 @Entity
 //Identifica que a estratégia de herança será “JOINED”, ou seja, será feita uma junção através de chaves estrangeiras.
 @Inheritance(strategy=InheritanceType.JOINED)
+//Aula 53
+//Informa que a classe Pagamento terá um campo adicional chamado "@type"
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable {	
 	private static final long serialVersionUID = 1L;

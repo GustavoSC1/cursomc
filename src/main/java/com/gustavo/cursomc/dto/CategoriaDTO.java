@@ -8,6 +8,9 @@ import org.hibernate.validator.constraints.Length;
 
 import com.gustavo.cursomc.domain.Categoria;
 
+//DTO (Data Transfer Object): é um objeto que tem o papel de carregar dados das entidades de forma simples,
+//podendo inclusive "projetar" apenas alguns dados da entidade original. 
+// https://pt.stackoverflow.com/questions/31362/o-que-é-um-dto
 public class CategoriaDTO implements Serializable {	
 	private static final long serialVersionUID = 1L;
 	
