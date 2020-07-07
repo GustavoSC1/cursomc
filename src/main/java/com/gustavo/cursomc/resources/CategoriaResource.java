@@ -22,6 +22,10 @@ import com.gustavo.cursomc.domain.Categoria;
 import com.gustavo.cursomc.dto.CategoriaDTO;
 import com.gustavo.cursomc.services.CategoriaService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
@@ -29,8 +33,10 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
+	// Cria descrições personalizadas para os endpoints
+	@ApiOperation(value="Busca por id")
 	// @PathVariable é utilizado quando o valor da variável é passada diretamente na URL, mas não como um parametro
-	//que você passa após o sinal de interrogação (?) mas sim quando o valor faz parte da url.
+	//que você passa após o sinal de interrogação (?) mas sim quando o valor faz parte da url.	
 	@RequestMapping(value="{id}", method = RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
@@ -38,6 +44,7 @@ public class CategoriaResource {
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Insere categoria")
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaDTO objDto){
 		Categoria obj = service.fromDTO(objDto);
@@ -48,6 +55,7 @@ public class CategoriaResource {
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Atualiza categoria")
 	@RequestMapping(value="{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaDTO objDto, @PathVariable Integer id){
 		Categoria obj = service.fromDTO(objDto);
@@ -57,12 +65,18 @@ public class CategoriaResource {
 	}
 	
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Remove categoria")
+	// Cria mensagens de resposta específicas
+	@ApiResponses(value = {
+			@ApiResponse(code = 400, message = "Não é possível excluir uma categoria que possui produtos"),
+			@ApiResponse(code = 404, message = "Código inexistente") })
 	@RequestMapping(value="{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@ApiOperation(value="Retorna todas as categoria")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List <CategoriaDTO>> findAll() {
 		List <Categoria> list = service.findAll();
@@ -70,6 +84,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(listDto);		
 	}
 	
+	@ApiOperation(value="Retorna todas as categoria com paginação")
 	@RequestMapping(value="/page", method = RequestMethod.GET)
 	public ResponseEntity<Page <CategoriaDTO>> findPage	(
 			@RequestParam(value="page", defaultValue="0") Integer page, 
