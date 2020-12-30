@@ -151,14 +151,6 @@ public class ClienteService {
 		
 		String fileName = prefix + user.getId() + ".jpg";
 		
-		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");
-		/*
-		URI uri = s3Service.uploadFile(multipartFile);
-						
-		Cliente cli = find(user.getId());
-		cli.setImageUrl(uri.toString());
-		repo.save(cli);	
-		return uri;*/
-		
+		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");				
 	}
 }
